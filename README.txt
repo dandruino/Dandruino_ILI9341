@@ -1,3 +1,10 @@
+This library is a fork of the Adafruint_ILI9241 TFT display library.
+I did this because I needed to control a TFT screen but with a slightly smaller size than the original 320x240.
+
+In this version you will be able to specify the resolution of the TFT display at the object instantiation.
+
+Again a BIG Thanks to Adafruit and all their team for the HUGE work they are doing for the community.
+
 This is a library for the Adafruit ILI9341 display products
 
 This library works with the Adafruit 2.8" Touch Shield V2 (SPI)
