@@ -13,8 +13,8 @@
   MIT license, all text above must be included in any redistribution
  ****************************************************/
 
-#ifndef _ADAFRUIT_ILI9341H_
-#define _ADAFRUIT_ILI9341H_
+#ifndef _Dandruino_ILI9341H_
+#define _Dandruino_ILI9341H_
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -41,8 +41,8 @@ typedef volatile uint32_t RwReg;
 #define USE_FAST_PINIO
 #endif
 
-#define ILI9341_TFTWIDTH  240
-#define ILI9341_TFTHEIGHT 320
+//#define ILI9341_TFTWIDTH  240
+//#define ILI9341_TFTHEIGHT 320
 
 #define ILI9341_NOP     0x00
 #define ILI9341_SWRESET 0x01
@@ -122,13 +122,13 @@ typedef volatile uint32_t RwReg;
 #define ILI9341_GREENYELLOW 0xAFE5      /* 173, 255,  47 */
 #define ILI9341_PINK        0xF81F
 
-class Adafruit_ILI9341 : public Adafruit_GFX {
+class Dandruino_ILI9341 : public Adafruit_GFX {
 
  public:
 
-  Adafruit_ILI9341(int8_t _CS, int8_t _DC, int8_t _MOSI, int8_t _SCLK,
+  Dandruino_ILI9341(int8_t _CS, int8_t _DC, int8_t _MOSI, int8_t _SCLK,
 		   int8_t _RST, int8_t _MISO);
-  Adafruit_ILI9341(int8_t _CS, int8_t _DC, int8_t _RST = -1);
+  Dandruino_ILI9341(int8_t _CS, int8_t _DC, int8_t _RST = -1);
 
   void     begin(void),
            setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1),
@@ -160,6 +160,8 @@ class Adafruit_ILI9341 : public Adafruit_GFX {
 
  private:
   uint8_t  tabcolor;
+  uint8_t  tftwidth;
+  uint8_t  tftheight;
 
 
 
