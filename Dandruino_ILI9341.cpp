@@ -55,30 +55,7 @@ static inline void spi_end(void) {
 
 // Constructor when using software SPI.  All output pins are configurable.
 Dandruino_ILI9341::Dandruino_ILI9341(int8_t cs, int8_t dc, int8_t mosi,
-				   int8_t sclk, int8_t rst, int8_t miso) : Adafruit_GFX(tftwidth, tftheight) {
-  _cs   = cs;
-  _dc   = dc;
-  _mosi  = mosi;
-  _miso = miso;
-  _sclk = sclk;
-  _rst  = rst;
-  hwSPI = false;
-}
-
-
-// Constructor when using hardware SPI.  Faster, but must use SPI pins
-// specific to each board type (e.g. 11,13 for Uno, 51,52 for Mega, etc.)
-Dandruino_ILI9341::Dandruino_ILI9341(int8_t cs, int8_t dc, int8_t rst) : Adafruit_GFX(tftwidth, tftheight) {
-  _cs   = cs;
-  _dc   = dc;
-  _rst  = rst;
-  hwSPI = true;
-  _mosi  = _sclk = 0;
-}
-
-// Constructor when using software SPI.  All output pins are configurable.
-Dandruino_ILI9341::Dandruino_ILI9341(int8_t cs, int8_t dc, int8_t mosi,
-				   int8_t sclk, int8_t rst, int8_t miso, uint8_t width, uint8_t height) : Adafruit_GFX(tftwidth, tftheight) {
+				   int8_t sclk, int8_t rst, int8_t miso, int16_t width, int16_t height) : Adafruit_GFX(width, height) {
   _cs   = cs;
   _dc   = dc;
   _mosi  = mosi;
@@ -93,7 +70,7 @@ Dandruino_ILI9341::Dandruino_ILI9341(int8_t cs, int8_t dc, int8_t mosi,
 
 // Constructor when using hardware SPI.  Faster, but must use SPI pins
 // specific to each board type (e.g. 11,13 for Uno, 51,52 for Mega, etc.)
-Dandruino_ILI9341::Dandruino_ILI9341(int8_t cs, int8_t dc, int8_t rst, uint8_t width, uint8_t height) : Adafruit_GFX(tftwidth, tftheight) {
+Dandruino_ILI9341::Dandruino_ILI9341(int8_t cs, int8_t dc, int8_t rst, int16_t width, int16_t height) : Adafruit_GFX(width, height) {
   _cs   = cs;
   _dc   = dc;
   _rst  = rst;
@@ -102,12 +79,6 @@ Dandruino_ILI9341::Dandruino_ILI9341(int8_t cs, int8_t dc, int8_t rst, uint8_t w
   tftwidth = width;
   tftheight = height;
 }
-
-void Dandruino_ILI9341::setup(uint8_t w, uint8_t h) {
-  tftwidth = w;
-  tftheight = h;
-}
-
 
 
 void Dandruino_ILI9341::spiwrite(uint8_t c) {

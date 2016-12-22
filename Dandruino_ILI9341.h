@@ -41,8 +41,8 @@ typedef volatile uint32_t RwReg;
 #define USE_FAST_PINIO
 #endif
 
-//#define ILI9341_TFTWIDTH  240
-//#define ILI9341_TFTHEIGHT 320
+// #define ILI9341_TFTWIDTH  240
+// #define ILI9341_TFTHEIGHT 320
 
 #define ILI9341_NOP     0x00
 #define ILI9341_SWRESET 0x01
@@ -127,8 +127,8 @@ class Dandruino_ILI9341 : public Adafruit_GFX {
  public:
 
   Dandruino_ILI9341(int8_t _CS, int8_t _DC, int8_t _MOSI, int8_t _SCLK,
-		   int8_t _RST, int8_t _MISO);
-  Dandruino_ILI9341(int8_t _CS, int8_t _DC, int8_t _RST = -1);
+		   int8_t _RST, int8_t _MISO, int16_t width = 240, int16_t height = 320);
+  Dandruino_ILI9341(int8_t _CS, int8_t _DC, int8_t _RST = -1, int16_t width = 240, int16_t height = 320);
 
   void     begin(void),
            setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1),
@@ -160,8 +160,8 @@ class Dandruino_ILI9341 : public Adafruit_GFX {
 
  private:
   uint8_t  tabcolor;
-  uint8_t  tftwidth;
-  uint8_t  tftheight;
+  int16_t  tftwidth;
+  int16_t  tftheight;
 
 
 
